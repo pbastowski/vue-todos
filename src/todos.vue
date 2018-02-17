@@ -8,15 +8,15 @@
 
                 todos-new.py-2(
                 v-model="newTodo",
-                @add-item="addItem",
-                @select-all="selectAll"
+                @add-item="addItem($event); newTodo = '';",
+                @complete-all="completeAll"
                 )
 
                 v-divider
                 v-divider
 
                 todos-list(
-                :todos="filteredTodos",
+                :todos="filteredTodos(visibility)",
                 @remove-item="removeItem"
                 )
 
@@ -35,13 +35,12 @@
 </template>
 
 <script>
+    import { mapActions, mapGetters } from 'vuex'
+
     import AppTitle from './app-title'
     import TodosList from './todos-list'
     import TodosNew from './todos-new'
     import TodosFooter from './todos-footer'
-
-    // This will be used to store and retrieve the todos list from localStorage
-    const STORAGE_KEY = 'vue-todos'
 
     export default {
         components: {
@@ -57,77 +56,28 @@
 
         data() {
             return {
-                newTodo:     '',
-                todoCounter: 0,
-                todos:       [],
-            }
-        },
-
-        created() {
-            this.loadTodos()
-        },
-
-        watch: {
-            todos: {
-                deep: true,
-                handler(nv) {
-                    if ( typeof nv !== 'undefined' ) {
-                        this.saveTodos()
-                    }
-                }
+                newTodo: '',
             }
         },
 
         computed: {
-            filteredTodos() {
-                return this.visibility === 'all'
-                    ? this.todos
-                    : this.visibility === 'active'
-                        ? this.todos.filter(todo => !todo.completed)
-                        : this.todos.filter(todo => todo.completed)
-            },
-
-            remainingItems() {
-                return this.todos.filter(todo => !todo.completed).length
-            },
+            ...mapGetters([
+                'todos',
+                'filteredTodos',
+                'remainingItems'
+            ]),
         },
 
         methods: {
-            selectAll(completed) {
-                this.todos = this.todos.map(x => ( { ...x, completed } ))
-            },
+            ...mapActions([
+                'loadTodos',
+                'saveTodos',
+                'completeAll',
+                'addItem',
+                'removeItem',
+                'clearCompleted',
+            ]),
 
-            addItem() {
-                this.todos.push({
-                    id:        ++this.todoCounter,
-                    title:     this.newTodo,
-                    completed: false,
-                })
-                this.newTodo = ''
-            },
-
-            removeItem(todo) {
-                this.todos = this.todos.filter(x => x.id !== todo.id)
-            },
-
-            clearCompleted() {
-                this.todos = this.todos.filter(x => !x.completed)
-            },
-
-            saveTodos() {
-                window.localStorage[ STORAGE_KEY ] = JSON.stringify(this.todos)
-            },
-
-            loadTodos() {
-                if ( !window.localStorage[ STORAGE_KEY ] ) return
-                let todos = JSON.parse(window.localStorage[ STORAGE_KEY ] || '{}')
-
-                this.todos = todos
-
-                // Preset the next todo id
-                this.todoCounter =
-                    this.todos.reduce((a, b) => ( a.id > b.id ? a : b ), { id: 0 }).id + 1
-            },
         },
     }
 </script>

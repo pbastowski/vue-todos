@@ -4,7 +4,7 @@
         v-checkbox.shrink(
         v-model="selectAll",
         hide-details,
-        @change="$emit('select-all', selectAll)",
+        @change="$emit('complete-all', selectAll)",
         color="grey",
         )
 
