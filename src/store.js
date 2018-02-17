@@ -13,40 +13,56 @@ const state = {
 }
 
 
+const mutations = {
+    SET_TODOS(state, todos) {
+        state.todos = todos
+    },
+
+    ADD_TODO(state, todo) {
+        state.todos.push(todo)
+    },
+
+    SET_COUNTER(state, counter) {
+        state.todoCounter = counter
+    }
+}
+
+
 const actions = {
     saveTodos({ state }) {
         window.localStorage[ STORAGE_KEY ] = JSON.stringify(state.todos)
     },
 
-    loadTodos({ state }) {
+    loadTodos({ state, commit }) {
         if ( !window.localStorage[ STORAGE_KEY ] ) return
         let todos = JSON.parse(window.localStorage[ STORAGE_KEY ] || '{}')
 
-        state.todos = todos
+        commit('SET_TODOS', todos)
 
         // Preset the next todo id
-        state.todoCounter =
-            state.todos.reduce((a, b) => ( a.id > b.id ? a : b ), { id: 0 }).id + 1
+        let counter = state.todos.reduce((a, b) => ( a.id > b.id ? a : b ), { id: 0 }).id + 1
+        commit('SET_COUNTER', counter)
+
     },
 
-    completeAll({ state }, completed) {
-        state.todos = state.todos.map(x => ( { ...x, completed } ))
+    completeAll({ state, commit }, completed) {
+        commit('SET_TODOS', state.todos.map(x => ( { ...x, completed } )))
     },
 
-    addItem({ state }, title) {
-        state.todos.push({
+    addItem({ state, commit }, title) {
+        commit('ADD_TODO', {
             id:        ++state.todoCounter,
             title,
             completed: false,
         })
     },
 
-    removeItem({state}, todo) {
-        state.todos = state.todos.filter(x => x.id !== todo.id)
+    removeItem({ state, commit }, todo) {
+        commit('SET_TODOS', state.todos.filter(x => x.id !== todo.id))
     },
 
-    clearCompleted({state}) {
-        state.todos = state.todos.filter(x => !x.completed)
+    clearCompleted({ state, commit }) {
+        commit('SET_TODOS', state.todos.filter(x => !x.completed))
     },
 }
 
@@ -69,6 +85,7 @@ const getters = {
 
 const store = new Vuex.Store({
     state,
+    mutations,
     actions,
     getters,
 })
