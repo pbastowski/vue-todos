@@ -12,6 +12,7 @@
   "license": "ISC",
   "dependencies": {
     "vue-router": "^3.0.1",
-    "vuetify": "^1.0.1"
+    "vuetify": "^1.0.1",
+    "vuex": "^3.0.1"
   }
 }
