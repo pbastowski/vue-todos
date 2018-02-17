@@ -2,7 +2,7 @@
     .grey--text.pl-3
         v-layout(justify-space-between, align-baseline)
             //span {{ remainingItems }} {{ remainingItems > 1 || remainingItems === 0 ? 'items' : 'item' }} left
-            span {{ remainingItems | pluralize('cock') }} left
+            span {{ remainingItems | pluralize }} left
             span
                 v-btn-toggle(v-model="selectedFilter")
                     v-btn(small, flat, to="/all", value='all') All
