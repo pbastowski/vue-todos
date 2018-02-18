@@ -34,6 +34,8 @@ npm i -g @vue/cli @vue/cli-service-global && cd `npm ls -g --depth 0 | head -1` 
 
 ## See the project running
 
+In your cloned folder type this in at the shell prompt:
+
 ```bash
 vue serve
 ```
