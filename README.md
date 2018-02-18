@@ -1,5 +1,7 @@
 # vue-todos
 
+Demo: https://pbastowski.github.io/vue-todos/
+
 This project is meant to demonstrate how to use vue, vue-router and vuex to implement a todo app. It is a visual clone of the popular TodoMVC demo app. 
 
 Visual means that this project does not attempt to implement an MVC pattern of the TodoMVC app, but just copy it's visual (UX) aspects. 
