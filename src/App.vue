@@ -12,10 +12,6 @@
         flex-grow: 1;
     }
 
-    .w100 {
-        width: 100%;
-    }
-
     .btn__content {
         text-transform: none;
     }
