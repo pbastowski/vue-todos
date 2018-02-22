@@ -70,8 +70,6 @@
 
         methods: {
             ...mapActions([
-                'loadTodos',
-                'saveTodos',
                 'completeAll',
                 'addItem',
                 'removeItem',

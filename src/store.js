@@ -71,7 +71,7 @@ const actions = {
             title,
             completed: false,
         })
-        commit('SET_COUNTER', todos.todosCounter+1)
+        commit('SET_COUNTER', state.todosCounter+1)
     },
 
     // Remove an item from the todos array by replacing the
