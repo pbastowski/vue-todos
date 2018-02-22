@@ -11,8 +11,6 @@
         v-text-field.text(
         :value="title",
         @input="$emit('input', $event)"
-        Xautofocus,
-        color="grey",
         label="What needs to be done?",
         clearable,
         @keyup.enter="$emit('add-item', title)",
@@ -43,5 +41,5 @@
 </script>
 
 <style scoped lang="scss">
-    .text /deep/ ::placeholder { font-style: italic; }
+    .text { font-style: italic; }
 </style>
