@@ -13,7 +13,7 @@ Libraries used:
 - vuex  
 - Vuetify
 
-You will neeed vue-cli 3 in zero-config mode to run this project. Also, npm version 5.6 or higher is required. Alternatively you can use the latest version of yarn.
+You will need vue-cli 3 in zero-config mode to run this project. Also, npm version 5.6 or higher is required. Alternatively you can use the latest version of yarn.
 
 ## Installation
 
@@ -35,7 +35,7 @@ npm i -E node-sass pug pug-html-loader pug-loader sass-loader
 
 ## See the project running
 
-In your cloned folder type this in at the shell prompt:
+In your cloned folder type this at the shell prompt:
 
 ```bash
 vue serve
