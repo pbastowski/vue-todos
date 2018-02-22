@@ -13,20 +13,28 @@ Libraries used:
 - vuex  
 - Vuetify
 
-You will need vue-cli 3 in zero-config mode to run this project. Also, npm version 5.6 or higher is required. Alternatively you can use the latest version of yarn.
-
 ## Installation
 
-Do the following:
+Before start, check that your node and npm versions are at least as shown below
 
-- clone this repo 
-- install vue-cli 3 globally
+- node 8.9.x or higher
+- npm 5.6.x or higher
+
+> You can update your node version like this: `npm install npm@latest -g`
+
+Now, we can clone the project 
+
+```bash
+git clone https://github.com/pbastowski/vue-todos.git
+```
+
+Install vue-cli 3 and it's zero-config module globally 
 
 ```bash
 npm i -g @vue/cli @vue/cli-service-global 
 ```
 
-- install pug and sass support globally, as we will be using both in this project
+And finally add pug and sass support to vue-cli, as we will be using both in this project
 
 ```bash
 cd `npm ls -g --depth 0 | head -1` && cd node_modules/@vue/cli-service-global
@@ -35,7 +43,7 @@ npm i -E node-sass pug pug-html-loader pug-loader sass-loader
 
 ## See the project running
 
-In your cloned folder type this at the shell prompt:
+In your cloned project folder type this at the shell prompt to start the app
 
 ```bash
 vue serve
