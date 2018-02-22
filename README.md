@@ -29,7 +29,8 @@ npm i -g @vue/cli @vue/cli-service-global
 - install pug and sass support globally, as we will be using both in this project
 
 ```bash
-cd `npm ls -g --depth 0 | head -1` && cd node_modules/@vue/cli-service-global && npm i -E node-sass pug pug-html-loader pug-loader sass-loader
+cd `npm ls -g --depth 0 | head -1` && cd node_modules/@vue/cli-service-global
+npm i -E node-sass pug pug-html-loader pug-loader sass-loader
 ```
 
 ## See the project running
