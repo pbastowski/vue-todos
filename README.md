@@ -6,7 +6,7 @@ This project is meant to demonstrate how to use vue, vue-router and vuex to impl
 
 Visual means that this project does not attempt to implement an MVC pattern of the TodoMVC app, but just copy it's visual (UX) aspects. 
 
-Libraries used:
+Libraries that we will use:
 
 - Vue 2
 - vue-router
@@ -22,10 +22,11 @@ Before start, check that your node and npm versions are at least as shown below
 
 > You can update your node version like this: `npm install npm@latest -g`
 
-Now, we can clone the project 
+Now, we can clone the project and check out the start branch
 
 ```bash
 git clone https://github.com/pbastowski/vue-todos.git
+git checkout start
 ```
 
 Install vue-cli 3 and it's zero-config module globally 
@@ -41,10 +42,5 @@ cd `npm ls -g --depth 0 | head -1` && cd node_modules/@vue/cli-service-global
 npm i -E node-sass sass-loader pug pug-loader
 ```
 
-## See the project running
+The above setup for vue-cli can be used for any of your vue experiments and projects.
 
-In your cloned project folder type this at the shell prompt to start the app
-
-```bash
-vue serve
-```
