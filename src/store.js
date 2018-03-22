@@ -48,7 +48,7 @@ const actions = {
     },
 
     // Load todos and todosCounter from localStorage
-    loadTodos({ state, commit }) {
+    loadTodos({ commit }) {
         let todos = JSON.parse(
             window.localStorage[ STORAGE_KEY ]
             // If the key does not exist then we load these defaults
@@ -128,7 +128,7 @@ store.dispatch('loadTodos')
 // This is achieved by watching the
 store.watch(
     () => store.state.todos,
-    (nv, ov) => store.dispatch('saveTodos'),
+    () => store.dispatch('saveTodos'),
     { deep: true }
 )
 
