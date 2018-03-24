@@ -22,10 +22,12 @@ Before start, check that your node and npm versions are at least as shown below
 
 > You can update your node version like this: `npm install npm@latest -g`
 
-Now, we can clone the project 
+Now, we can clone the project and install the npm dependencies
 
 ```bash
 git clone https://github.com/pbastowski/vue-todos.git
+cd vue-todos
+npm i
 ```
 
 Install vue-cli 3 and it's zero-config module globally 
