@@ -1,14 +1,15 @@
 <template>
     <div>
         <template v-for="todo in todos">
-            <div class="todo-row px-3 py-1">
+            <div class="todo-row px-3 py-1" :key="todo.id">
 
                 <v-layout align-center="align-center">
 
                     <v-checkbox
                             v-model="todo.completed"
                             hide-details="hide-details"
-                            class="shrink"/>
+                            class="shrink"
+                    />
 
                     <v-text-field v-model="todo.title" solo flat/>
 
@@ -22,6 +23,7 @@
 
             </div>
 
+            <!--eslint-disable-next-line-->
             <v-divider/>
 
         </template>
