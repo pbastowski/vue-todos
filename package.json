@@ -2,7 +2,7 @@
   "name": "vue-todos",
   "version": "1.0.0",
   "description": "",
-  "main": "main.js",
+  "main": "index.js",
   "scripts": {
     "dev": "vue serve",
     "build": "vue build"
