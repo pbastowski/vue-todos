@@ -1,36 +1,35 @@
-<template lang="pug">
-    div
-        app-title
+<template>
+    <div>
+        <app-title/>
+        <v-container style="max-width: 800px;">
+            <v-card class="app-font">
 
-        v-container(style="max-width: 800px;")
+                <todos-new
+                        v-model="newTodo"
+                        @add-item="addItem($event); newTodo = '';"
+                        @complete-all="completeAll"
+                        class="py-2"/>
 
-            v-card.app-font
+                <v-divider/>
+                <v-divider/>
 
-                todos-new.py-2(
-                v-model="newTodo",
-                @add-item="addItem($event); newTodo = '';",
-                @complete-all="completeAll"
-                )
+                <todos-list
+                        :todos="filteredTodos(visibility)"
+                        @remove-item="removeItem"/>
+                <v-divider v-if="filteredTodos.length > 0"/>
 
-                v-divider
-                v-divider
+                <todos-footer
+                        :remaining-items="remainingItems"
+                        @clear-completed="clearCompleted"
+                        class="py-2"/>
+            </v-card>
 
-                todos-list(
-                :todos="filteredTodos(visibility)",
-                @remove-item="removeItem"
-                )
+            <hr class="mx-1"/>
+            <hr class="mx-2"/>
+            <hr class="mx-3"/>
 
-                v-divider(v-if="filteredTodos.length>0")
-
-                todos-footer.py-2(
-                :remaining-items="remainingItems",
-                @clear-completed="clearCompleted"
-                )
-
-            hr.mx-1
-            hr.mx-2
-            hr.mx-3
-
+        </v-container>
+    </div>
 
 </template>
 
@@ -64,7 +63,7 @@
             ...mapGetters([
                 'todos',
                 'filteredTodos',
-                'remainingItems'
+                'remainingItems',
             ]),
         },
 

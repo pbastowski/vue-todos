@@ -1,22 +1,24 @@
-<template lang="pug">
-    v-layout(align-center).px-3
+<template>
+    <v-layout align-center class="px-3">
 
-        v-checkbox.shrink(
-        v-model="selectAll",
-        hide-details,
-        @change="$emit('complete-all', selectAll)",
-        color="grey",
-        )
+        <v-checkbox
+                v-model="selectAll"
+                hide-details
+                @change="$emit('complete-all', selectAll)"
+                color="grey"
+                class="shrink"/>
 
-        v-text-field.text(
-        :value="title",
-        @input="$emit('input', $event)"
-        label="What needs to be done?",
-        clearable,
-        @keyup.enter="$emit('add-item', title)",
-        solo,
-        flat,
-        )
+        <v-text-field
+                :value="title"
+                label="What needs to be done?"
+                @input="$emit('input', $event)"
+                @keyup.enter="$emit('add-item', title)"
+                clearable
+                solo
+                flat
+                class="text"/>
+
+    </v-layout>
 </template>
 
 <script>
@@ -41,5 +43,7 @@
 </script>
 
 <style scoped lang="scss">
-    .text { font-style: italic; }
+    .text {
+        font-style: italic;
+    }
 </style>

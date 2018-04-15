@@ -1,6 +1,7 @@
-<template lang="pug" functional>
-    v-layout(justify-space-around)
-        h1 todos
+<template functional>
+    <v-layout justify-space-around>
+        <h1>todos</h1>
+    </v-layout>
 </template>
 
 <style scoped>

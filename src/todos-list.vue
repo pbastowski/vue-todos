@@ -1,14 +1,31 @@
-<template lang="pug">
-    div
-        template(v-for="todo in todos")
-            .todo-row.px-3.py-1
-                v-layout(align-center)
-                    v-checkbox.shrink(v-model="todo.completed", hide-details)
-                    v-text-field(v-model="todo.title", solo, flat)
-                    v-btn.mr-0(flat, icon, @click="$emit('remove-item', todo)")
-                        v-icon.delete-todo(color="red") delete
-            v-divider
+<template>
+    <div>
+        <template v-for="todo in todos">
+            <div class="todo-row px-3 py-1">
 
+                <v-layout align-center="align-center">
+
+                    <v-checkbox
+                            v-model="todo.completed"
+                            hide-details="hide-details"
+                            class="shrink"/>
+
+                    <v-text-field v-model="todo.title" solo flat/>
+
+                    <v-btn flat icon
+                           @click="$emit('remove-item', todo)"
+                           class="mr-0">
+                        <v-icon color="red" class="delete-todo">delete</v-icon>
+                    </v-btn>
+
+                </v-layout>
+
+            </div>
+
+            <v-divider/>
+
+        </template>
+    </div>
 </template>
 
 <script>
