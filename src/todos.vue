@@ -13,18 +13,18 @@
                 )
 
                 v-divider
+
+                todos-footer.py-2(
+                :remaining-items="remainingItems",
+                @clear-completed="clearCompleted"
+                )
+
+                v-divider
                 v-divider
 
                 todos-list(
                 :todos="filteredTodos(visibility)",
                 @remove-item="removeItem"
-                )
-
-                v-divider(v-if="filteredTodos.length>0")
-
-                todos-footer.py-2(
-                :remaining-items="remainingItems",
-                @clear-completed="clearCompleted"
                 )
 
             hr.mx-1
@@ -64,7 +64,7 @@
             ...mapGetters([
                 'todos',
                 'filteredTodos',
-                'remainingItems'
+                'remainingItems',
             ]),
         },
 
