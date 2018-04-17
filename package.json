@@ -1,0 +1,15 @@
+{
+  "name": "todos",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/pbastowski/vue-todos.git",
+  "author": "Paul Bastowski <pbastowski@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "vue-router": "^3.0.1",
+    "vuex": "^3.0.1"
+  },
+  "devDependencies": {
+    "regenerator-runtime": "^0.11.1"
+  }
+}
